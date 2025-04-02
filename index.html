@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Processing Tool</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Options</h2>
+            <div id="optionsMenu">
+                <button data-section="homeSection">Home</button>
+                <button data-section="backgroundRemoverSection">Background Remover</button>
+                <button data-section="pdfConverterSection">JPG to PDF Converter</button>
+                <button data-section="imageUpscalerSection">Image Upscaler</button> <!-- Add this line -->
+            </div>
+        </div>
+        <div class="content">
+            <div id="homeSection">
+                <h1>Welcome to the Image Processing Tool</h1>
+                <p>Select an option from the left menu to get started.</p>
+            </div>
+            <div id="backgroundRemoverSection" style="display: none;">
+                <h2>Background Remover</h2>
+                <div class="upload-box" id="uploadBox">
+                    <label class="upload-label" for="fileInput">Drag & Drop or Click to Upload Image</label>
+                    <input type="file" id="fileInput" accept="image/*">
+                    <div class="preview" id="filePreview"></div>
+                    <div id="uploadLoadingLine" class="loading-line-container"></div> <!-- Loading line container -->
+                </div>
+                <div id="uploadSpinner" class="progress-bar" style="display: none;">
+                    <div class="progress"></div>
+                </div>
+                <div class="buttons">
+                    <button id="removeBackgroundBtn">Remove Background</button>
+                    <button id="resetBtn">Reset</button>
+                </div>
+                <div id="removeSpinner" class="circle-spinner" style="display: none;"></div>
+                <div id="output" style="display: none;">
+                    <img id="resultImage" alt="Processed Image">
+                    <div id="removeLoadingLine" class="loading-line-container"></div> <!-- Loading line container -->
+                    <button id="downloadBtn">Download Image</button>
+                </div>
+            </div>
+
+            <div id="imageUpscalerSection" style="display: none;">
+                <h2>Image Upscaler</h2>
+                <div class="upload-box" id="upscaleUploadBox">
+                    <label class="upload-label" for="upscaleFileInput">Drag & Drop or Click to Upload Image</label>
+                    <input type="file" id="upscaleFileInput" accept="image/*">
+                    <div class="preview" id="upscalePreview"></div>
+                </div>
+                <div id="upscaleSpinner" class="circle-spinner" style="display: none;"></div>
+                <div class="buttons">
+                    <button id="upscaleBtn">Upscale Image</button>
+                    <button id="upscaleResetBtn">Reset</button> <!-- Add this line -->
+                </div>
+                <div id="upscaleOutput" style="display: none;">
+                    <img id="upscaledImage" alt="Upscaled Image">
+                    <button id="upscaleDownloadBtn">Download Image</button>
+                </div>
+            </div>
+
+            <div id="pdfConverterSection" style="display: none;">
+                <h2>JPG to PDF Converter</h2>
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <label class="upload-label" for="imageUpload">Choose File</label>
+                    <input type="file" id="imageUpload" accept="image/*" required>
+                    <button type="submit">Convert to PDF</button>
+                    <button id="pdfResetBtn" type="button">Reset</button> <!-- Add this line -->
+                </form>
+                <div id="preview"></div>
+                <div id="status"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

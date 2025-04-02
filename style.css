@@ -1,0 +1,366 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {  
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #f4f4f9, #e9ecef); /* Elegant light gradient */
+    background-attachment: fixed;
+    background-size: cover;
+    color: #333; /* Default text color */
+    position: relative;
+    overflow-x: hidden;
+    perspective: 1000px; /* For 3D effects */
+    min-height: 100vh; /* Ensure the body covers the full height of the viewport */
+    transition: background-color 0.3s ease; /* Smooth transition for background-color */
+}
+
+/* Adding Subtle Origami Background Stickers */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://wallpapercave.com/wp/wp2057992.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; /* Make the image cover the entire screen */
+    background-position: center; /* Center the image */
+    opacity: 0.1; /* More subtle effect */
+    z-index: -1; /* Behind everything */
+    filter: blur(2px); /* Slight blur effect */
+    animation: floatStickers 8s infinite alternate ease-in-out;
+}
+
+@keyframes floatStickers {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Block Styles with Subtle 3D Effects */
+.background-remover, .pdf-converter {
+    background: #ffffff;
+    border: 3px solid #8e44ad; /* Elegant purple border */
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px 0;
+    box-shadow: 0 0 20px rgba(142, 68, 173, 0.4);
+    transform: rotateY(0deg); /* Default rotation */
+    transition: transform 0.6s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    animation: slideIn3D 1s ease-out;
+}
+
+.background-remover:hover, .pdf-converter:hover {
+    transform: rotateY(15deg) translateZ(20px); /* Stronger 3D rotation */
+    box-shadow: 0 0 40px rgba(142, 68, 173, 0.8);
+    background-color: #f0f0f0; /* Slight background change on hover */
+}
+
+/* Typography */
+h1 {
+    font-size: 3vw;
+    color: #8e44ad; /* Purple for main headings */
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(142, 68, 173, 0.4);
+    animation: fadeIn 1.5s ease-out;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+h1:hover {
+    color: #6c3483; /* Darker shade on hover */
+    text-shadow: 0 0 20px rgba(142, 68, 173, 0.8); /* Stronger shadow */
+}
+
+h2 {
+    font-size: 2.5vw;
+    color: #16a085; /* Elegant teal for section headings */
+    margin-bottom: 15px;
+    text-shadow: 0 0 8px rgba(22, 160, 133, 0.6);
+    animation: fadeIn 1.5s ease-out;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+h2:hover {
+    color: #1abc9c; /* Slightly lighter shade on hover */
+    text-shadow: 0 0 16px rgba(22, 160, 133, 1); /* Stronger shadow */
+}
+
+p {
+    font-size: 1.5vw;
+    color: #333;
+    margin-bottom: 15px;
+    animation: fadeIn 1.5s ease-out;
+    transition: color 0.3s ease;
+}
+
+p:hover {
+    color: #777; /* Lighter shade for paragraphs */
+}
+
+/* File Input Styles */
+.upload-label {
+    background: #16a085;
+    color: #fff;
+    padding: 14px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.5vw;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(22, 160, 133, 0.4);
+    margin-bottom: 20px;
+    animation: scaleUp 1.2s ease-in-out;
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.upload-label:hover {
+    background: #148f77;
+    box-shadow: 0 0 30px rgba(20, 143, 119, 0.8);
+    transform: translateZ(20px);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* Button Styles */
+button {
+    background: #8e44ad;
+    border: none;
+    color: #fff;
+    padding: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.5vw;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(142, 68, 173, 0.4);
+    margin-top: 20px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+button:hover {
+    background: #6c3483;
+    box-shadow: 0 0 30px rgba(108, 52, 131, 0.8);
+    transform: translateZ(20px);
+    background-color: #733b8b; /* Subtle color shift */
+}
+
+/* Image Styling - Resize to specific dimensions */
+#filePreview img, #resultImage, #upscaledImage {
+    width: 615px; /* Set the width to 615px */
+    height: 416px; /* Set the height to 416px */
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(142, 68, 173, 0.4);
+    margin-top: 20px; /* Add margin to prevent overlapping */
+    animation: fadeIn 1.5s ease-out;
+}
+
+#filePreview img:hover, #resultImage:hover, #upscaledImage:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(142, 68, 173, 0.8);
+}
+
+/* Specific styling for Image Upscaler to prevent overlapping */
+#upscalePreview img {
+    margin-top: 20px; /* Add margin to prevent overlapping */
+}
+
+#upscalePreview img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(142, 68, 173, 0.8);
+}
+
+/* Ensure the upscaled image is displayed correctly */
+#upscaleOutput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; /* Add margin to prevent overlapping */
+}
+
+/* Loading Line Styles - Width 6cm and matching image width */
+.loading-line-container {
+    width: 6cm; /* Set width of the loading line to 6cm */
+    height: 2px; /* Set the height to 2px */
+    margin-top: 5px; /* Add space between image and loading line */
+}
+
+.loading-line {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #8e44ad, #16a085);
+    animation: loading 4s linear forwards;
+}
+
+.loading-line:hover {
+    background: linear-gradient(90deg, #6c3483, #148f77);
+}
+
+/* Loading Line Animation */
+@keyframes loading {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Spinner Styles */
+.circle-spinner {
+    margin: 30px auto 20px;
+    border: 6px solid rgba(0, 0, 0, 0.1);
+    border-top: 6px solid #8e44ad;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    display: none;
+}
+
+.circle-spinner:hover {
+    border-top: 6px solid #6c3483;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 200px;
+    background: #8e44ad;
+    color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(142, 68, 173, 0.4);
+    transition: all 0.3s ease;
+}
+
+.sidebar:hover {
+    background: #733b8b; /* Slight color shift on hover */
+    box-shadow: 0 0 40px rgba(142, 68, 173, 0.8);
+}
+
+.sidebar h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.sidebar h2:hover {
+    color: #fff;
+}
+
+.sidebar button {
+    background: #16a085;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(22, 160, 133, 0.4);
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.sidebar button:hover {
+    background: #148f77;
+    box-shadow: 0 0 30px rgba(20, 143, 119, 0.8);
+    transform: translateZ(20px);
+}
+
+/* Content Styles */
+.content {
+    margin-left: 240px; /* Adjust based on sidebar width */
+    width: calc(100% - 240px);
+}
+
+#homeSection, #backgroundRemoverSection, #pdfConverterSection {
+    display: none;
+}
+
+/* Zoom Hover Effect */
+.zoom-hover {
+    transition: transform 0.3s ease;
+}
+
+.zoom-hover:hover {
+    transform: scale(1.2);
+}
+
+/* Media Queries for Larger Screens */
+@media (min-width: 768px) {
+    .container {
+        padding: 40px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1.2em;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 60px;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    h2 {
+        font-size: 2.5em;
+    }
+
+    p {
+        font-size: 1.5em;
+    }
+}
