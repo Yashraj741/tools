@@ -10,7 +10,7 @@ const resultImage = document.getElementById('resultImage');
 const downloadBtn = document.getElementById('downloadBtn');
 
 // API key for Remove.bg
-const API_KEY = "1eVmq61BtNLvCkaPqCgwEpTn";
+const API_KEY = "YNCBDLMZBAs6r9DMmmDDiiTg";
 
 // Function to show loading line
 function showLoadingLine(containerId, duration) {
